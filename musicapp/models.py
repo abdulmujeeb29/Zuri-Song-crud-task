@@ -12,7 +12,7 @@ class Artiste(models.Model):
         return str(self.first_name) + str(self.last_name)
 
 class Song(models.Model):
-    artiste = models.ForeignKey(Artiste, on_delete=models.CASCADE)
+    artiste_id = models.ForeignKey(Artiste, on_delete=models.CASCADE)
     title=models.CharField(max_length= 100)
     date_released =models.DateTimeField()
     likes =models.IntegerField()
@@ -23,7 +23,7 @@ class Song(models.Model):
 
 
 class Lyric(models.Model):
-    song= models.ForeignKey(Song,on_delete=models.CASCADE)
+    song_id= models.ForeignKey(Song,on_delete=models.CASCADE)
     content =models.CharField(max_length= 100)
     #song_id =
 
